@@ -10,9 +10,25 @@ namespace Odc4_6
     {
         static void Main(string[] args)
         {
-            Console.Write ("Podaj swój wiek: ");
-            int age; 
-            
+            for (; ; )
+            {
+                Przywitanie();
+                Wiek();
+                Czyszczenie();
+            }
+        }
+        private static void Czyszczenie()
+        {
+            Console.ResetColor();
+            Console.WriteLine("Nacisnij przycisk by podać dalej: ");
+            Console.ReadKey();
+            Console.Clear();
+        }
+        private static void Wiek()
+        {
+            Console.Write("Podaj swój wiek: ");
+            int age;
+
             bool result = int.TryParse(Console.ReadLine(), out age);
             if (result == false)
             {
@@ -22,19 +38,24 @@ namespace Odc4_6
             else
             {
                 if (age <= 18)
-                { 
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Moze soczek cwelu");
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Kurwa już podaje browarka");
                 }
 
             }
-            Console.ReadKey();
         }
-            
-      }
+        private static void Przywitanie()
+        {
+            Console.Write("Podaj swoje imię: ");
+            string imie = Console.ReadLine();
+            Console.WriteLine("Czesc " + imie);
+        }
     }
+}
 
