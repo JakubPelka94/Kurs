@@ -10,6 +10,8 @@ namespace Odc4_6
     {
         static void Main(string[] args)
         {
+            ValueTypes();
+
             for (; ; )
             {
                 Przywitanie();
@@ -17,6 +19,20 @@ namespace Odc4_6
                 Czyszczenie();
             }
         }
+
+        private static void ValueTypes()
+        {
+            int maxInt = int.MaxValue;
+            int minInt = int.MinValue;
+            long maxLong = long.MaxValue;
+            long minLong = long.MinValue;
+
+            Console.WriteLine("maxInt= " + maxInt);
+            Console.WriteLine("minInt= " + minInt);
+            Console.WriteLine("maxLong= " + maxLong);
+            Console.WriteLine("minLong= " + minLong);
+        }
+
         private static void Czyszczenie()
         {
             Console.ResetColor();
