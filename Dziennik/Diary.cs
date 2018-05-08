@@ -8,9 +8,14 @@ namespace Dziennik
 {
     class Diary
     {
+
+        public Diary()
+        {
+            oceny = new List<float>();
+        }
         // Stan (zmienne-pola)
 
-        List <float> oceny= new List<float>() ;
+        List<float> oceny;
 
         // Zachowania
         public void dodawanie (float ocena)
