@@ -22,29 +22,25 @@ namespace Dziennik
         {
             oceny.Add(ocena);            
         }
-            
-        public float srednia()
+
+        internal DiaryStat ComputeStat()
         {
-            float suma=0 , sre=0;
-            foreach (var ocena in  oceny)
-            {
-                suma += ocena;
-            }
-            sre = suma / oceny.Count();
+            DiaryStat stats = new DiaryStat();
 
-            return sre;
+            float suma = 0f;
+
+                foreach (var ocena in oceny)
+                {
+                    suma += ocena;
+                }
+
+            stats.avg = suma / oceny.Count();
+            stats.maxoc= oceny.Max(); 
+            stats.minoc=oceny.Min(); 
+      
+            return stats;
         }
-
-        public float maxocena()
-        {
-            return oceny.Max();
-        }
-
-        public float minocena()
-        {
-            return oceny.Min();
-        }
-
 
     }
+
 }

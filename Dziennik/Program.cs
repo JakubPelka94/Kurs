@@ -11,35 +11,31 @@ namespace Dziennik
         static void Main(string[] args)
         {
             Diary D1 = new Diary();
-           /*
+       
             D1.dodawanie(5);
             D1.dodawanie(8.5f);
             D1.dodawanie(4.7f);
 
-            float srednia = D1.srednia();
-            float max = D1.maxocena();
-            float min = D1.minocena();
-            */
+           DiaryStat stats=D1.ComputeStat();
 
-            for (; ; )
-            {
-                Console.WriteLine("Podaj ocene z zakresu 1-10: ");
-             float ocena;
-             bool result = float.TryParse(Console.ReadLine(),out ocena);
+            Console.WriteLine("Srednia ocen to: "+stats.avg);
+            Console.WriteLine("Max ocena to: " + stats.maxoc);
+            Console.WriteLine("Min ocena to: " + stats.minoc);
+            
 
-                if (ocena == 11)
-                {
-                    break;
-                }
-                
-                if (result == true&&ocena <=10)
-                {
-                    D1.dodawanie(ocena);
-                }
-            }
-            Console.WriteLine("Srednia ocena to: " + D1.srednia());
-            Console.WriteLine("Max ocena to: " + D1.maxocena());
-            Console.WriteLine("Min ocena to: " + D1.minocena());
+
+            Diary D2 = new Diary();
+
+            D2.dodawanie(2);
+            D2.dodawanie(1.5f);
+            D2.dodawanie(4.75f);
+
+            stats = D2.ComputeStat();
+
+            Console.WriteLine("Srednia ocen to: " + stats.avg);
+            Console.WriteLine("Max ocena to: " + stats.maxoc);
+            Console.WriteLine("Min ocena to: " + stats.minoc);
+
             Console.ReadKey();
         }
     }
